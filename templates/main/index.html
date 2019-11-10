@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row mt-4">
+  <div class='col'>
+    <h2>Add Wleta</h2>
+    <form action="add_wleta/" method="post" class="form-inline">
+    <input type="text" name="full_name" class="form-control mb-2 mr-sm-2" placeholder="full name">
+    <input type="text" name="wleta_list" class="form-control mb-2 mr-sm-2" placeholder="wleta ...">
+    <button type="submit" class="btn btn-primary mb-2">Add</button>
+    </form>
+  </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item active">Wleta List</li>
+        {% for wleta_item in wleta_items %}
+          <li class="list-group-item">
+
+
+
+          <div class="row">
+          <div class="col-sm">{{ wleta_item.full_name }}</div>
+          <div class="col-sm">{{ wleta_item.wleta_list }}</div>
+          <div class="float-right"><form action="delete_wleta/{{wleta_item.id}}/" action="post">
+                <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+          </div>
+          </div>
+
+              
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  <div>
+{% endblock content %}
